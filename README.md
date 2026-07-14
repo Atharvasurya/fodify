@@ -1,6 +1,6 @@
-# 🍔 Fodify - Food Ordering Platform
+# 🤖 Fodify - AI Powered Food Ordering Platform
 
-A modern, full-stack MERN (MongoDB, Express, React, Node.js) food ordering application inspired by Swiggy and Zomato. Features a beautiful UI with Tailwind CSS, Redux state management, JWT authentication, and real-time order tracking.
+A modern, full-stack MERN (MongoDB, Express, React, Node.js) food ordering application with **AI-powered recommendations, mood-based food discovery, smart search, and sentiment analysis**. Inspired by Swiggy and Zomato, featuring a beautiful UI with Tailwind CSS, Redux state management, and JWT authentication.
 
 ## 🌟 Features
 

@@ -38,7 +38,7 @@ const Dashboard = () => {
             Welcome to <span className="text-primary-600">Fodify</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-2">
-            Your Ultimate Food Ordering Platform
+            AI Powered Food Ordering Platform
           </p>
           <p className="text-lg text-gray-500">
             Choose how you'd like to continue
