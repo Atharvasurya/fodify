@@ -29,7 +29,12 @@ connectDB();
 startAutoDeliveryScheduler();
 
 // Middleware
-app.use(cors()); // Enable CORS for frontend communication
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production'
+    ? true  // Allow all origins in production (Vercel, etc.)
+    : 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiClock, FiSearch, FiChevronRight } from 'react-icons/fi';
-import axios from 'axios';
+import api from '../services/api';
 import SearchAutocomplete from '../components/SearchAutocomplete';
 import GroceryCard from '../components/GroceryCard';
 
@@ -21,7 +21,7 @@ const GroceryHome = () => {
   const fetchGroceryItems = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/foods?itemType=grocery');
+      const response = await api.get('/foods?itemType=grocery');
       const items = response.data.data || [];
       setGroceryItems(items);
       
