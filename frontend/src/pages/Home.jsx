@@ -171,7 +171,10 @@ const Home = () => {
         <div className="flex justify-between items-center mb-4">
           <div className="text-3xl font-display font-bold text-gradient">Fodify</div>
           <button 
-            onClick={() => navigate('/profile')} 
+            onClick={() => {
+              const isAuthenticated = localStorage.getItem('token'); // Simplest check if redux not available
+              navigate(isAuthenticated ? '/orders' : '/login');
+            }} 
             className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center shrink-0 border-2 border-orange-200"
           >
             <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
