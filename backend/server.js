@@ -65,6 +65,29 @@ app.get('/', (req, res) => {
   });
 });
 
+import { spawn } from 'child_process';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Temporary Seeding Endpoint
+app.get('/api/seed', (req, res) => {
+  res.json({ message: 'Seeding triggered. Check server logs for progress.' });
+  
+  const seedProcess = spawn('node', ['seeders/seedData.js'], { cwd: __dirname, stdio: 'inherit' });
+  seedProcess.on('close', (code) => {
+    console.log(`Restaurants seed process exited with code ${code}`);
+    if (code === 0) {
+      const groceryProcess = spawn('node', ['scripts/seedGroceries.js'], { cwd: __dirname, stdio: 'inherit' });
+      groceryProcess.on('close', (code) => {
+        console.log(`Groceries seed process exited with code ${code}`);
+      });
+    }
+  });
+});
+
 // 404 Handler
 app.use((req, res) => {
   res.status(404).json({
